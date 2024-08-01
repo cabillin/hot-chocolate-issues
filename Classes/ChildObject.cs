@@ -1,4 +1,4 @@
-﻿namespace HotChocolate.Issues
+﻿namespace HotChocolate.Issues.Classes
 {
     public class ChildObject
     {
