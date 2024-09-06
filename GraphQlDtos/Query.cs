@@ -1,14 +1,11 @@
-﻿using HotChocolate.Issues.Classes;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
+﻿
 namespace HotChocolate.Issues.GraphQlDtos
 {
     public class Query
     {
-        public async Task<List<ParentObject>> GetParents(IFakeDataService dataService)
+        public string Ping()
         {
-            return await dataService.GetAllParents();
+            return "hello world";
         }
     }
 }

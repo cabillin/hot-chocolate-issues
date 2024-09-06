@@ -2,19 +2,15 @@ using HotChocolate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using HotChocolate.Issues.GraphQlDtos;
-using HotChocolate.Issues;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .AddScoped<IFakeDataService, FakeDataService>()
+    .AddMemoryCache()
     .AddGraphQLServer()
-    .ModifyOptions(o => {
-        o.EnableDefer = true;
-    })
     .AddQueryType<Query>()
-    .RegisterService<IFakeDataService>()
-    .AddIssuesTypes();
+    .UseAutomaticPersistedQueryPipeline()
+    .AddInMemoryQueryStorage();
 
 var app = builder.Build();
 
