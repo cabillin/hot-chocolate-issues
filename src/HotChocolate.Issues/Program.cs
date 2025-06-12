@@ -13,7 +13,7 @@ builder.Services
         o.EnableDefer = true;
     })
     .AddQueryType<Query>()
-    .AddIssuesTypes()
+    //.AddIssuesTypes()
     .AddFiltering();
 
 var app = builder.Build();

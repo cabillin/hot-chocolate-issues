@@ -25,21 +25,5 @@ namespace HotChocolate.Issues
             };
         }
 
-        public async Task<IDictionary<string, ChildObject>> GetChildrenByIds(List<string> childIds)
-        {
-            await Task.Delay(4000);
-            var children = childIds.ToDictionary(x => x, x => new ChildObject() { Id = x });
-            return children;
-        }
-
-        public async Task<Comment> getLatestComment(string id)
-        {
-            await Task.Delay(2000);
-            return new Comment()
-            {
-                Id = "comment_" + id + 1,
-                Contents = "hello world"
-            };
-        }
     }
 }
