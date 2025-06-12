@@ -2,6 +2,69 @@
   query: Query
 }
 
+type ParentObject {
+  id: Int!
+  childId: String!
+  flags: FlagEnum!
+}
+
 type Query {
   ping: String!
+  parents(where: ParentObjectFilterInput @cost(weight: "10")): [ParentObject!]! @cost(weight: "10")
 }
+
+input FlagEnumOperationFilterInput {
+  eq: FlagEnum @cost(weight: "10")
+  neq: FlagEnum @cost(weight: "10")
+  in: [FlagEnum!] @cost(weight: "10")
+  nin: [FlagEnum!] @cost(weight: "10")
+}
+
+input IntOperationFilterInput {
+  eq: Int @cost(weight: "10")
+  neq: Int @cost(weight: "10")
+  in: [Int] @cost(weight: "10")
+  nin: [Int] @cost(weight: "10")
+  gt: Int @cost(weight: "10")
+  ngt: Int @cost(weight: "10")
+  gte: Int @cost(weight: "10")
+  ngte: Int @cost(weight: "10")
+  lt: Int @cost(weight: "10")
+  nlt: Int @cost(weight: "10")
+  lte: Int @cost(weight: "10")
+  nlte: Int @cost(weight: "10")
+}
+
+input ParentObjectFilterInput {
+  and: [ParentObjectFilterInput!]
+  or: [ParentObjectFilterInput!]
+  id: IntOperationFilterInput
+  childId: StringOperationFilterInput
+  flags: FlagEnumOperationFilterInput
+}
+
+input StringOperationFilterInput {
+  and: [StringOperationFilterInput!]
+  or: [StringOperationFilterInput!]
+  eq: String @cost(weight: "10")
+  neq: String @cost(weight: "10")
+  contains: String @cost(weight: "20")
+  ncontains: String @cost(weight: "20")
+  in: [String] @cost(weight: "10")
+  nin: [String] @cost(weight: "10")
+  startsWith: String @cost(weight: "20")
+  nstartsWith: String @cost(weight: "20")
+  endsWith: String @cost(weight: "20")
+  nendsWith: String @cost(weight: "20")
+}
+
+enum FlagEnum {
+  NONE
+  BOB
+  ANA
+  CLAIRE
+  ALL
+}
+
+"The purpose of the `cost` directive is to define a `weight` for GraphQL types, fields, and arguments. Static analysis can use these weights when calculating the overall cost of a query or response."
+directive @cost("The `weight` argument defines what value to add to the overall cost for every appearance, or possible appearance, of a type, field, argument, etc." weight: String!) on SCALAR | OBJECT | FIELD_DEFINITION | ARGUMENT_DEFINITION | ENUM | INPUT_FIELD_DEFINITION

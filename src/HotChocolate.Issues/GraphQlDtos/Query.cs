@@ -1,4 +1,5 @@
-﻿using HotChocolate.Issues.Classes;
+﻿using HotChocolate.Data;
+using HotChocolate.Issues.Classes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,7 +12,8 @@ namespace HotChocolate.Issues.GraphQlDtos
             return "Hello World";
         }
 
-        public async Task<List<ParentObject>> GetParents(IFakeDataService dataService)
+        [UseFiltering]
+        public async Task<List<ParentObject>> GetParents([Service]IFakeDataService dataService)
         {
             return await dataService.GetAllParents();
         }

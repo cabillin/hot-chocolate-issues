@@ -13,8 +13,8 @@ builder.Services
         o.EnableDefer = true;
     })
     .AddQueryType<Query>()
-    .RegisterService<IFakeDataService>()
-    .AddIssuesTypes();
+    .AddIssuesTypes()
+    .AddFiltering();
 
 var app = builder.Build();
 

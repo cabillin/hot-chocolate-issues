@@ -8,7 +8,6 @@ using HotChocolate;
 using HotChocolate.Execution;
 using Snapshooter.Xunit;
 using HotChocolate.Issues.GraphQlDtos;
-using HotChocolate.Issues.Test;
 
 namespace GraphQL.Server.Test
 {
@@ -22,7 +21,12 @@ namespace GraphQL.Server.Test
         [Fact]
         public async Task SchemaChangeTest()
         {
-            var schema = await TestServices.RequestExecutorProxy.GetSchemaAsync(default);
+            var schema = await new ServiceCollection()
+                .AddGraphQLServer()
+                .AddFiltering()
+                .AddQueryType<Query>()
+                .BuildSchemaAsync();
+
             schema.ToString().MatchSnapshot();
         }
     }

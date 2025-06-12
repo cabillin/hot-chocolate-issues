@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using HotChocolate.Issues.Classes;
 using HotChocolate.Types;
-using OneApp.GraphQL.Server.DataLoaders;
+using HotChocolate.Issues.DataLoaders;
 
 namespace HotChocolate.Issues.GraphQlDtos
 {

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Issues", "HotChocolate.Issues.csproj", "{AC8ACD3E-6AEB-423D-AF41-E35BCD6E21D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotChocolate.Issues.Test", "..\HotChocolate.Issues.Test\HotChocolate.Issues.Test.csproj", "{BEE706FA-0105-4852-AA4D-D2D01C35F097}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC8ACD3E-6AEB-423D-AF41-E35BCD6E21D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC8ACD3E-6AEB-423D-AF41-E35BCD6E21D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC8ACD3E-6AEB-423D-AF41-E35BCD6E21D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC8ACD3E-6AEB-423D-AF41-E35BCD6E21D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEE706FA-0105-4852-AA4D-D2D01C35F097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE706FA-0105-4852-AA4D-D2D01C35F097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE706FA-0105-4852-AA4D-D2D01C35F097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE706FA-0105-4852-AA4D-D2D01C35F097}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B091AF51-CE0C-4954-8D0D-B52D60673901}
+	EndGlobalSection
+EndGlobal

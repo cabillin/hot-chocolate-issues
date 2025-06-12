@@ -6,7 +6,7 @@ using System.Threading;
 using HotChocolate.Issues.Classes;
 using HotChocolate.Issues;
 
-namespace OneApp.GraphQL.Server.DataLoaders
+namespace HotChocolate.Issues.DataLoaders
 {
     public class ChildByIdDataLoader : BatchDataLoader<string, ChildObject>
     {
