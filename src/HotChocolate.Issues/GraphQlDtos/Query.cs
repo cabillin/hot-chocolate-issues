@@ -1,7 +1,11 @@
-﻿using HotChocolate.Data;
-using HotChocolate.Issues.Classes;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using GreenDonut.Data;
+using HotChocolate.Data;
+using HotChocolate.Issues.Classes;
+using HotChocolate.Resolvers;
+using HotChocolate.Types;
 
 namespace HotChocolate.Issues.GraphQlDtos
 {
@@ -12,8 +16,15 @@ namespace HotChocolate.Issues.GraphQlDtos
             return "Hello World";
         }
 
-        [UseFiltering]
-        public async Task<List<ParentObject>> GetParents([Service]IFakeDataService dataService)
+        [UsePaging, UseFiltering]            
+        public async Task<List<ParentObject>> GetParents(
+            //injected 
+            CancellationToken cancellationToken,
+            IResolverContext context, 
+            [Service] IFakeDataService dataService,
+            // "magic" inputs
+            PagingArguments pagingArgs,
+            QueryContext<ParentObject> queryContext)
         {
             return await dataService.GetAllParents();
         }
