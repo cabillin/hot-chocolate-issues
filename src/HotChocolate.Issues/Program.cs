@@ -11,6 +11,7 @@ builder.Services
     .AddGraphQLServer()
     .ModifyOptions(o => {
         o.EnableDefer = true;
+        o.EnableFlagEnums = true;
     })
     .AddQueryType<Query>()
     //.AddIssuesTypes()
